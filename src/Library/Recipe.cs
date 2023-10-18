@@ -15,9 +15,12 @@ namespace Full_GRASP_And_SOLID
 
         public Product FinalProduct { get; set; }
 
-        public void AddStep(Step step)
+        // Modificado para poder recibir los parametros del producto y no una instancia de la Step
+        public Step AddStep(Product product, double quantity, Equipment equipment, int time)
         {
+            var step = new Step(product, quantity, equipment, time);
             this.steps.Add(step);
+            return step;
         }
 
         public void RemoveStep(Step step)
